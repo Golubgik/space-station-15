@@ -9,9 +9,6 @@
     sound: /Audio/Misc/ninja_greeting.ogg
   addComponents:
   - type: SpaceNinja
-  - type: NpcFactionMember
-    factions:
-    - Syndicate
   - type: AutoImplant
     implants:
     - DeathAcidifierImplant
@@ -20,5 +17,7 @@
     - NamesNinjaTitle
     - NamesNinja
     nameFormat: name-format-ninja
+  factions: 
+  - Syndicate
   mindRoles:
   - MindRoleNinja

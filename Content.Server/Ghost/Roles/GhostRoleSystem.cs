@@ -625,7 +625,7 @@ public sealed class GhostRoleSystem : EntitySystem
         _mindSystem.TransferTo(newMind, mob);
 
         if (_prototype.Resolve<AntagLoadoutPrototype>(role.AntagLoadoutPrototype, out var loadout))
-            MakeAntag(loadout, mob, roleUid);
+            MakeAntag(loadout, newMind, roleUid);
 
         if (role.Minion)
         {
@@ -633,7 +633,7 @@ public sealed class GhostRoleSystem : EntitySystem
         }
     }
 
-    private bool MakeAntag(AntagLoadoutPrototype antagLoadout, EntityUid player, EntityUid ghostRole)
+    private bool MakeAntag(AntagLoadoutPrototype antagLoadout, Entity<MindComponent> playerMind, EntityUid ghostRole)
     {
         if (TryComp<GhostRoleMobSpawnerComponent>(ghostRole, out var _))
         {
@@ -642,7 +642,7 @@ public sealed class GhostRoleSystem : EntitySystem
             antagLoadout.StartingGear = null;
             antagLoadout.AddComponents.Clear();
         }
-        return _antag.TryMakeNonGameRuleAntag(player, antagLoadout, ghostRole);
+        return _antag.TryMakeSimpleAntag(playerMind, antagLoadout, ghostRole);
     }
 
     /// <summary>

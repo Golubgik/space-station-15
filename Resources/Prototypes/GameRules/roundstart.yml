@@ -227,7 +227,7 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
-      antagLoadout: Revolutionary
+      antagLoadout: HeadRevolutionary
   - type: DynamicRuleCost
     cost: 200
 

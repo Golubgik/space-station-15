@@ -1,5 +1,7 @@
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -74,6 +76,12 @@ public sealed partial class AntagLoadoutPrototype : IPrototype, IInheritingProto
     /// </summary>
     [DataField]
     public List<ProtoId<RoleLoadoutPrototype>>? RoleLoadout;
+
+    /// <summary>
+    /// NPCFactions added to the player.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> Factions = new();
 
     /// <summary>
     /// A briefing shown to the player.

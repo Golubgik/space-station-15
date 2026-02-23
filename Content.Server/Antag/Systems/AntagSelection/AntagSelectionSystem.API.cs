@@ -333,6 +333,20 @@ public sealed partial class AntagSelectionSystem
         }
     }
 
+
+
+    public AntagData CreateAntagData(AntagLoadoutPrototype antag, EntityUid player)
+    {
+        var playerComponents = new ComponentRegistry();
+        foreach (var (name, entry) in antag.AddComponents)
+        {
+            var compType = entry.Component.GetType();
+            if (_ent.HasComponent(player, type: compType))
+                playerComponents.Add(name, entry);
+        }
+        return new AntagData { MindRoles = antag.MindRoles, AntagComponents = antag.AddComponents, PlayerComponents = playerComponents, AntagEntity = player, Factions = antag.Factions };
+    }
+
     /// <summary>
     /// This technically is a gamerule-ent-less way to make an entity an antag.
     /// You should almost never be using this.

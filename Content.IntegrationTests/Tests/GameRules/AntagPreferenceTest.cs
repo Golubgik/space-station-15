@@ -46,7 +46,7 @@ public sealed class AntagPreferenceTest
 
         // IsSessionValid & IsEntityValid are preference agnostic and should always be true for players in the lobby.
         // Though maybe that will change in the future, but then GetPlayerPool() needs to be updated to reflect that.
-        Assert.That(sys.IsSessionValid(rule, pair.Player, def, antagLoadout), Is.True);
+        Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
         Assert.That(sys.IsEntityValid(client.AttachedEntity, antagLoadout), Is.True);
 
         // By default, traitor/antag preferences are disabled, so the pool should be empty.
@@ -57,7 +57,7 @@ public sealed class AntagPreferenceTest
         // Opt into the traitor role.
         await pair.SetAntagPreference("Traitor", true);
 
-        Assert.That(sys.IsSessionValid(rule, pair.Player, def, antagLoadout), Is.True);
+        Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
         Assert.That(sys.IsEntityValid(client.AttachedEntity, antagLoadout), Is.True);
         pool = sys.GetPlayerPool(rule, sessions, def);
         Assert.That(pool.Count, Is.EqualTo(1));
@@ -68,7 +68,7 @@ public sealed class AntagPreferenceTest
         // opt back out
         await pair.SetAntagPreference("Traitor", false);
 
-        Assert.That(sys.IsSessionValid(rule, pair.Player, def, antagLoadout), Is.True);
+        Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
         Assert.That(sys.IsEntityValid(client.AttachedEntity, antagLoadout), Is.True);
         pool = sys.GetPlayerPool(rule, sessions, def);
         Assert.That(pool.Count, Is.EqualTo(0));
