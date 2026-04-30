@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Changeling.Components;
@@ -91,6 +91,7 @@ public sealed partial class ChangelingAbilitySystem : EntitySystem
 
         _popup.PopupClient(Loc.GetString("changeling-sting-success", ("target", Identity.Entity(args.Target, EntityManager))), args.Target, ent.Owner, PopupType.Medium);
         _changelingIdentity.GrantIdentity(ent, args.Target);
+    }
     private void OnStingAction(Entity<ChangelingStingAbilityComponent> ent, ref ChangelingStingActionEvent args)
     {
         if (ent.Comp.RequireAlive && _mobState.IsDead(args.Target))
