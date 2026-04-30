@@ -23,3 +23,6 @@ changeling-catalog-hallucination-sting-desc = Grow a silent stinger that injects
 
 changeling-catalog-neurodepressant-sting-name = Neurodepressant Sting
 changeling-catalog-neurodepressant-sting-desc = Grow a silent stinger that injects a sedative, leaving the victim drowsy and sluggish.
+
+changeling-catalog-last-resort-name = Last Resort
+changeling-catalog-last-resort-desc = Gib your current body and escape as a weak head slug. If you infest a corpse, you can return to a full changeling body.
